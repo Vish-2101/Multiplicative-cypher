@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplicative Cipher Simulator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <header>
+            <h1>Multiplicative Cipher</h1>
+            <p class="subtitle">Enter text and a key to visualize the encryption process</p>
+        </header>
+
+        <div class="panels-container">
+            <!-- Encryption Panel -->
+            <div class="glass-panel encryption-panel">
+                <div class="panel-header">
+                    <h2><span class="icon">🔒</span> Encryption</h2>
+                </div>
+                
+                <div class="input-group">
+                    <label for="encrypt-input">Plaintext</label>
+                    <input type="text" id="encrypt-input" value="we attack" placeholder="Enter text to encrypt...">
+                </div>
+
+                <div class="input-group">
+                    <label for="encrypt-key">Key (Coprime to 26)</label>
+                    <input type="number" id="encrypt-key" value="7" min="1" max="25">
+                    <div id="encrypt-key-error" class="error-msg"></div>
+                </div>
+
+                <button id="encrypt-btn" class="btn primary full-width">
+                    Encrypt
+                </button>
+
+                <div class="output-group">
+                    <label>Ciphertext Result</label>
+                    <div id="encrypt-output" class="readonly-output"></div>
+                </div>
+            </div>
+
+            <!-- Decryption Panel -->
+            <div class="glass-panel decryption-panel">
+                <div class="panel-header">
+                    <h2><span class="icon">🔓</span> Decryption</h2>
+                </div>
+
+                <div class="input-group">
+                    <label for="decrypt-input">Ciphertext</label>
+                    <input type="text" id="decrypt-input" placeholder="Waiting for ciphertext...">
+                </div>
+
+                <div class="input-group">
+                    <label for="decrypt-key">Key</label>
+                    <input type="number" id="decrypt-key" value="7" min="1" max="25">
+                    <div id="decrypt-key-error" class="error-msg"></div>
+                </div>
+
+                <button id="decrypt-btn" class="btn secondary full-width">
+                    Decrypt
+                </button>
+
+                <div class="output-group">
+                    <label>Plaintext Result</label>
+                    <div id="decrypt-output" class="readonly-output"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="output-section" class="glass-panel result-panel hidden">
+            <div class="result-header">
+                <h2>Result</h2>
+                <div class="output-text" id="output-text"></div>
+            </div>
+            
+            <div class="steps-container">
+                <h3>Encryption Steps</h3>
+                <div class="steps-grid" id="steps-grid">
+                    <!-- Steps will be injected here -->
+                </div>
+            </div>
+
+            <div class="alphabet-mapping">
+                <h3>Alphabet Mapping</h3>
+                <div class="mapping-scroll" id="alphabet-mapping">
+                    <!-- Mapping will be injected here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
